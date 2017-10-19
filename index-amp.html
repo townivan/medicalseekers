@@ -1,0 +1,441 @@
+<!--
+#### Introduction
+
+An AMP HTML tutorial - learn the different building blocks of an AMP HTML file. AMP HTML is entirely built on existing web technologies. It achieves reliable performance by restricting some parts of HTML, CSS and JavaScript. To make up for those limitations AMP HTML defines a set of custom elements for rich content beyond basic HTML. This samples shows what's necessary to create a valid AMP HTML file.
+-->
+<!-- -->
+<!doctype html>
+<!-- This tells everyone that this is an AMP file. `<html amp>` works too. -->
+<html ⚡>
+<!-- #### Head -->
+<!-- -->
+<head>
+<!-- The charset definition must be the first child of the head tag. -->
+<meta charset="utf-8">
+
+<!--
+AMP HTML files require a canonical link pointing to the regular HTML. If no HTML version
+exists, it should point to itself.
+-->
+<link rel="canonical" href="https://medicalseekers.com/">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <!--
+    The AMP boilerplate.
+  -->
+  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  
+  
+    <script type="application/ld+json">
+    {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "url": "https://medicalseekers.com",
+    "contactPoint": [{
+        "@type": "ContactPoint",
+        "telephone": "+1-888-316-3232",
+        "contactType": "customer service"
+    }]
+    }
+    </script>
+  
+  <!--
+    CSS must be embedded inline.
+  -->
+    <style amp-custom>
+    body{
+        font-size:20px;
+        line-height:1.4;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        color: #333;
+        width: 100%;
+    }
+    h2{
+        margin: 0;
+        font-size: 2.5em;
+        text-align: center;
+        -webkit-margin-before: 1em;
+    }
+    
+    header{
+        background-color: #2c3e50;
+        padding:15px;
+    }
+    .brand1{
+        color:#fff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-weight: 700;
+    }
+    .brand2{
+        color: #18bc9c;
+    }
+    .heroContainer{
+        background-image: url('../img/candidate-hero2-mobile-comp.jpg');
+        height: 300px;
+        background-size: cover;
+        background-position: 90% 40%;
+    }
+    .flexContainer{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height: 100%;
+    }
+    .flexContainer > div{
+        font-family: 'Lato', sans-serif;
+        text-align: center;
+    }
+    .myHeadline{
+        color: white;
+        margin-bottom: 5.6em;
+        font-size:24px;
+        line-height: 1.3; 
+        padding: 0 15px;  
+    }
+    .myCTA{
+        display:inline-block;
+        border: 1px white solid;
+        background-color: white;
+        background-color: rgba(255,255,255, .2);
+        color:white;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        border-bottom: 1px white solid;
+        border-bottom: 1px rgba(255,255,255,.5) solid;
+        padding: 10px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+    .myCTA:visited{
+    }
+    .myCTA:focus{
+    }
+    .myCTA:hover{
+    }
+    .myCTA:active{
+        background-color: rgba(255,255,255,.8);
+        color: black;
+    }
+
+    section.green{
+        background-color: #18bc9c;
+        padding:10px;
+        color: white;
+        padding-bottom: 60px;
+    }
+    section.green p{
+        font-size:1.3em;
+        text-align:center;
+    }
+    .standoutText{
+        color:#105852;
+    }
+    hr.iconHR {
+        margin: 25px auto 30px;
+        padding: 0;
+        max-width: 250px;
+        border: 0;
+        border-top: solid 5px;
+        text-align: center;
+        height: 0;
+    }
+    hr.iconHR:after {
+        content: "\f1e5";
+        display: inline-block;
+        position: relative;
+        top: -.8em;
+        padding: 0 .25em;
+        font-family: FontAwesome;
+        font-size: 2em;
+        background-color: #fff;
+    }
+    hr.iconHRgreen:after {
+        background-color: #18bc9c;
+    }
+    section.white{
+        padding:10px;
+        padding-bottom: 60px;
+    }
+    .welcomeFlexContainer{
+        display:flex;
+        align-items:center;
+        width:100%;
+        flex-wrap:wrap;
+    }
+    .welcomeFlexContainer > div{
+        /*flex: 1 0 100%;*/
+        width:100%;
+    }
+    h3{
+        line-height: 1.1;
+        margin-top: 2em;
+        margin-bottom: 5px;
+    }
+    section.gettingStarted p{
+        text-align:left;
+        font-size:1em;
+        margin-top:0;
+    }
+    .text-center{
+        text-align:center;
+    }
+    .myCTAonGreen{
+        background-color: rgba(255,255,255, .5);
+        border-bottom: 1px rgba(51,51,51,.7) solid;
+    }
+    .img-circle{
+        border-radius: 50%;
+    }
+    .faqQ > p{
+        color: #C47A00;
+    }
+    .myCTAonWhite{
+        background-color: rgba(24,188,156, .9);
+        border-bottom: 1px rgba(16,88,82,.7) solid;
+    }
+    .myCTAonWhite:active{
+        background-color: rgba(16,88,82,.7);
+        /*border-bottom: 1px rgba(16,88,82,.7) solid;*/
+        color:white;
+    }
+
+    section.about.green p {
+        font-size: 1em;
+    }
+    section.about blockquote{
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .aboutBtn{
+        width: 91%;
+    }
+    .aboutBtn2{
+        margin-top:10px;
+    }
+    footer{
+        color:white;
+        background-color: #2c3e50;
+        font-size: .8em;
+        padding: 30px 0;
+    }
+    
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) {
+    
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+    .welcomeFlexContainer > div{
+        /*flex: 1 0 50%;*/
+        width:50%;
+    }
+    .heroContainer {
+        background-image: url('../img/candidate-hero2-comp.jpg');
+        height: 600px;
+        background-size: cover;
+        background-position: 90% 40%;
+    }
+    .myHeadline {
+        font-size: 52px;
+    }
+    section.green{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    section.white{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}
+
+    
+
+
+    </style>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:700|Montserrat:400,700">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
+    <!-- The AMP runtime must be loaded from the last element in the head. -->
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-font" src="https://cdn.ampproject.org/v0/amp-font-0.1.js"></script>
+</head>
+<!-- #### Body -->
+<!-- -->
+<body>
+
+    <header>
+        <a class="brand1" href="#page-top">medical<span class="brand2">seekers</span></a>
+    </header>
+
+
+  <!--
+    Certain tags, such as the `<img>` tag, are replaced
+    with equivalent or slightly enhanced custom AMP HTML tags (see
+    [HTML Tags in the specification](https://github.com/ampproject/amphtml/blob/master/spec/amp-html-format.md)).
+
+    You can use the [ AMP Validator ](https://www.ampproject.org/docs/guides/validate.html) to check
+    if your AMP HTML file is valid AMP HTML. Simply
+    add `#development=1` to an AMP URL. Validation errors will be printed in the Javascript console.
+    You can try it with this website which is build with AMP.
+
+    Check out the [other examples](/) to learn more about AMP.
+  -->
+  <!--<amp-img src="/img/candidate-hero2-mobile-comp.jpg" width="1593" height="1847" layout="responsive"></amp-img>-->
+    <section class="heroContainer">
+        <div class="flexContainer">
+            <div>
+                <div class="myHeadline">Finding your next candidate just got easier.</div>
+                <div><a href="tel:18883163232" class="myCTA myCTA__hero"><!--<amp-img src="/img/phone.svg" width="13" height="13"></amp-img>--><i class="fa fa-phone" aria-hidden="true"></i> 1-888-316-3232</a></div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="green">
+        <p>Looking to hire a doctor or nurse?</p>  
+        <p>We are a medical recruiting service specializing in <i class="standoutText">Physicians</i>, <i class="standoutText">Physician Assistants (PA)</i> and <i class="standoutText">Nurse Practitioners (APRN)</i>.</p>
+        <p>From large hospitals to small private practices, employers throughout the nation rely on us to find their talent.</p>
+    </section>
+
+
+    <section class="white">
+        <h2>WELCOME</h2>
+        <hr class="iconHR">
+
+        <div class="welcomeFlexContainer">
+
+            <div class="col2">
+                <p>Hiring a doctor, nurse, or other medical professionals can be daunting.  We can help.  Our measure of success is founded on the idea that happy customers are repeat customers.</p>
+
+                <p>How can we make you a happy customer?  Our approach is simple:</p>
+
+                <ul class="ul1">
+                    <li>Focus on individual service</li>
+                    <li>Better than competitive rates</li>
+                    <li>Streamline operational efficiency</li>
+                </ul>
+
+                <p>We hope to show you exactly how these principles translate directly into a premier placement experience.</p>
+            </div>
+
+            <div class="col2">
+                <!--<p>test</p>-->
+                <amp-img src="/img/three-nurses-shutterstock_110038883-smaller-optimized.jpg" width="768" height="536" layout="responsive"></amp-img>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="green gettingStarted">
+        <h2>GETTING STARTED</h2>
+        <hr class="iconHR iconHRgreen">
+        <h3>STEP 1 - DEFINING THE GOAL</h3>
+        <p>How soon do you need your position filled?  We can put the plan together for you.</p>          
+
+        <h3>STEP 2 - IT ALL STARTS WITH A CALL</h3>
+        <p>We guarantee to be extremely competitive on value and service.  Give us a call today and put us to the test!</p>
+        <div class="text-center"><a href="tel:18883163232" class="myCTA standoutText myCTAonGreen"><i class="fa fa-phone" aria-hidden="true"></i> 1-888-316-3232</a></div>
+        <ul>
+            <li>No investment risk!  We don't get paid unless you get placed.</li>
+            <li>Placement guarantee.  We give a generous security period.  If life happens and your new-hire doesn't work out during that time period - we'll find the replacement for free!</li>
+        </ul> 
+
+        <h3>STEP 3 - THE SEARCH IS ON</h3>
+        <p>Potential canditates will be examined based on the criteria that you are looking for.  Based on your preferences, potentials will be screened until you want an interview.</p>
+        <p>Maybe it will start with a phone interview and proceed to a formal face-to-face.  Every situtation is different, but we will be doing our part to make sure you are comfortable and effective.</p>
+
+        <h3>STEP 4 - NEGOTIATION</h3>
+        <p>This can be a candidate-driven market, but we represent you.  Our incentive is to make good placements, not just any placements.  Challenges are common during this phase of the process, but we've helped plenty of people navigate these waters before.</p>
+
+        <h3>STEP 5 - CELEBRATION</h3>
+        <p>Congratulations!  You've filled your opening in record time and budget!  We trust that you will allow us to serve you again soon.</p>
+
+        <div class="text-center">
+            <amp-img src="/img/celebrate.jpg" width="170" height="170" class="img-circle"></amp-img>
+        </div>
+    </section>
+
+
+    <section class="white">
+        <h2>FAQ</h2>
+        <hr class="iconHR">
+
+        <div class="faqQ">
+            <p><i class="fa fa-question-circle"></i> What do you charge to find a candidate? <i class="fa fa-question-circle"></i></p>
+        </div>
+        <div class="faqA">
+            <p>Our rates are extremely competetive.  Please give us a call for a free quote.</p>
+            <p>No annoying form to fill out, just a simple phone call.</p>
+            <p class="text-center"><a href="tel:18883163232" class="myCTA standoutText myCTAonWhite"><i class="fa fa-phone" aria-hidden="true"></i> 1-888-316-3232</a></p>
+        </div>
+        <hr />
+
+        <div class="faqQ">
+            <p><i class="fa fa-question-circle"></i> Am I locked into a contract if I go with MedicalSeekers? <i class="fa fa-question-circle"></i></p>
+        </div>
+        <div class="faqA">
+            <p>You can cancel at any time!  That's one of the benefits of working with us - no risk and all reward!</p>
+            <p>You have complete control over the recruiting process. :)</p>
+        </div>
+        <hr />
+
+        <div class="faqQ">
+            <p><i class="fa fa-question-circle"></i> What exactly are you going to do for me? <i class="fa fa-question-circle"></i></p>
+        </div>
+        <div class="faqA">
+            <p>We are going to do the grunt work for you.  We go out to search for your candidates rather than hoping that they come to you.</p>
+            <p>We do background checks and prescreening to insure only quality interviews.  We invest our time and effort to make you glad that you didn't have to.</p>
+        </div>
+        <!--<hr />-->
+    </section>
+
+
+    <section class="green about">
+        <h2>ABOUT US</h2>
+        <hr class="iconHR iconHRgreen">
+        <p>MedicalSeekers is a national medical recruiting firm based in Michigan.</p>
+                    
+        <div class="founderContainer">
+            <blockquote><i class="fa fa-quote-left" aria-hidden="true"></i> My hope is that you will receive the best service, the best candidate, and the best recruiting experience.  If you have any questions, I'd love to hear from you.<i class="fa fa-quote-right" aria-hidden="true"></i><br role="presentation" /></blockquote>
+            <div class="text-center">- Jason Bradshaw</div>
+            <div class="text-center"><amp-img src="/img/IMG_1692_200x200.JPG" width="170" height="170" class="img-circle"></amp-img></div> 
+        </div>
+            
+
+        <p class="text-center">
+            <a href="tel:18883163232" class="myCTA standoutText myCTAonGreen aboutBtn"><i class="fa fa-phone" aria-hidden="true"></i> 1-888-316-3232</a> 
+            <a href="mailto:hello@medicalseekers.com" class="myCTA standoutText myCTAonGreen aboutBtn aboutBtn2"><i class="fa fa-envelope-o" aria-hidden="true"></i> hello@medicalseekers.com</a> 
+        </p>
+    </section>
+
+
+    <footer>
+        <div class="text-center">
+            &copy; 2016 MedicalSeekers.com &nbsp;&nbsp;&nbsp;  <br role="presentation" class="visible-xs">All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
