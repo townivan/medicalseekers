@@ -232,7 +232,7 @@ blockquote p {
         margin-top: 10px;
     }
     .herobg {
-        background-image: url('https://github.com/townivan/medicalseekers/blob/master/img/candidate-hero2-mobile-comp.jpg');
+        background-image: url('medicalseekers/img/candidate-hero2-mobile-comp.jpg');
         height: 400px;
         background-size: cover;
         background-position: 90% 40%;
@@ -261,7 +261,7 @@ blockquote p {
 
 @media only screen and (min-width: 500px){
     .herobg {
-        background-image: url('https://github.com/townivan/medicalseekers/blob/master/img/candidate-hero2-comp.jpg');
+        background-image: url('medicalseekers/img/candidate-hero2-comp.jpg');
         height: 600px;
         background-size: cover;
         background-position: 90% 40%;
